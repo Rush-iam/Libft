@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 22:06:30 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/04 22:13:24 by ngragas          ###   ########.fr       */
+/*   Created: 2020/11/09 15:40:23 by ngragas           #+#    #+#             */
+/*   Updated: 2020/11/09 16:21:38 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "libft.h"
 
-int	ft_toupper(int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	return ((96 < c && c < 123) ? c - 32 : c);
+	if (!n)
+		return (0);
+	while (--n && *s1 && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)*s1 < (unsigned char)*s2 ? -1 : !(*s1 == *s2));
 }

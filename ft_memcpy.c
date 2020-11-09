@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 22:06:30 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/04 22:13:24 by ngragas          ###   ########.fr       */
+/*   Created: 2020/11/09 19:23:09 by ngragas           #+#    #+#             */
+/*   Updated: 2020/11/09 22:23:07 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	return ((96 < c && c < 123) ? c - 32 : c);
+	char	*cur;
+
+	if (!dst && !src)
+		return (NULL);
+	if (src != dst)
+	{
+		cur = dst;
+		while (n--)
+			*cur++ = *(char *)src++;
+	}
+	return (dst);
 }

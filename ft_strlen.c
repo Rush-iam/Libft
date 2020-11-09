@@ -6,21 +6,20 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 19:59:16 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/05 23:02:43 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/09 12:33:38 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
-	char	*check;
-	long	*ptr;
+	register const char	*check;
 
-	ptr = (long *)s;
+	check = s;
 	while (1)
 	{
-		check = (char *)ptr;
 		if (!check[0])
 			return (check - s);
 		if (!check[1])
@@ -37,6 +36,6 @@ size_t	ft_strlen(const char *s)
 			return (check - s + 6);
 		if (!check[7])
 			return (check - s + 7);
-		ptr++;
+		check += 8;
 	}
 }
