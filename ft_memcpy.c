@@ -19,11 +19,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	if (!dst && !src)
 		return (NULL);
-	if (src != dst)
-	{
-		cur = dst;
-		while (n--)
-			*cur++ = *(char *)src++;
-	}
+	cur = dst;
+	while (n--)
+		*cur++ = *(char *)src++;
 	return (dst);
 }

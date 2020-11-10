@@ -6,7 +6,7 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 21:43:41 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/09 22:39:17 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/10 20:20:18 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,14 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (!dst && !src)
 		return (NULL);
-	if (dst < src)
+	if (dst > src)
+		while (len--)
+			*((char *)dst + len) = *((char *)src + len);
+	else
 	{
 		cur = dst;
 		while (len--)
 			*cur++ = *(char *)src++;
-	}
-	else if (dst > src)
-	{
-		dst += len;
-		src += len;
-		while (len--)
-			*(char *)--dst = *(char *)--src;
 	}
 	return (dst);
 }
