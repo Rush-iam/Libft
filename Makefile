@@ -6,7 +6,7 @@
 #    By: ngragas <ngragas@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/04 20:29:14 by ngragas           #+#    #+#              #
-#    Updated: 2020/11/10 21:05:20 by ngragas          ###   ########.fr        #
+#    Updated: 2020/11/12 21:38:49 by ngragas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SOURCES =	ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c	\
 			ft_calloc.c		ft_bzero.c		ft_memset.c						\
 			ft_strdup.c		ft_substr.c		ft_strlcat.c	ft_strjoin.c	\
 			ft_strtrim.c	ft_split.c		\
-			ft_atoi.c
+			ft_atoi.c		ft_itoa.c
 OBJECTS = $(SOURCES:.c=.o)
 NAME = libft.a
 HEADER = libft.h

@@ -6,7 +6,7 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 19:59:16 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/09 12:33:38 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/12 14:15:55 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 
 size_t	ft_strlen(const char *s)
 {
-	register const char	*check;
+	const char	*check;
 
 	check = s;
-	while (1)
+	while (check[0])
 	{
-		if (!check[0])
-			return (check - s);
 		if (!check[1])
 			return (check - s + 1);
 		if (!check[2])
@@ -38,4 +36,5 @@ size_t	ft_strlen(const char *s)
 			return (check - s + 7);
 		check += 8;
 	}
+	return (check - s);
 }

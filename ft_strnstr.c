@@ -6,19 +6,25 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 13:09:30 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/09 14:25:55 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/12 18:52:15 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	const char	*check_haystack;
 	const char	*check_needle;
+	size_t		needle_len;
 
 	if (!*needle)
 		return ((char *)haystack);
+	needle_len = ft_strlen(needle);
+	if (!len || (*haystack && len < needle_len))
+		return (NULL);
+	len -= needle_len - 1;
 	while (len && *haystack)
 	{
 		if (*haystack == *needle)
@@ -27,11 +33,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			check_needle = needle + 1;
 			while (*check_needle && *check_haystack++ == *check_needle)
 				check_needle++;
-			if (!*check_needle && (size_t)(check_needle - needle) <= len)
+			if (!*check_needle)
 				return ((char *)haystack);
 		}
-		len--;
 		haystack++;
+		len--;
 	}
 	return (NULL);
 }
