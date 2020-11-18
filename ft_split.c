@@ -6,7 +6,7 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 18:16:02 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/12 21:32:23 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/12 21:36:28 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static char	**ft_fail(char **split, unsigned count)
 
 char		**ft_split(char const *s, char c)
 {
-	const char	*cur_read = s;
+	char const	*cur_read = s;
 	unsigned	count;
 	char		**split;
 

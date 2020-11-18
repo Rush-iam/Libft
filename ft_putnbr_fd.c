@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 22:06:30 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/04 22:13:24 by ngragas          ###   ########.fr       */
+/*   Created: 2020/11/18 15:04:54 by ngragas           #+#    #+#             */
+/*   Updated: 2020/11/18 19:43:12 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	return (96 < c && c < 123 ? c - 32 : c);
+	char const	c = '0' + n % 10 * ((n > 0) - (n < 0));
+
+	n < 0 ? write(fd, "-", 1) : 0;
+	(n /= 10 * ((n >= 0) - (n < 0))) ? ft_putnbr_fd(n, fd) : 0;
+	write(fd, &c, 1);
 }

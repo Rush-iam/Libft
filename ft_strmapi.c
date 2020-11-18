@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/04 22:06:30 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/04 22:13:24 by ngragas          ###   ########.fr       */
+/*   Created: 2020/11/18 19:53:14 by ngragas           #+#    #+#             */
+/*   Updated: 2020/11/18 21:03:58 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-int	ft_toupper(int c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	return (96 < c && c < 123 ? c - 32 : c);
+	char		*newstr;
+	unsigned	index;
+
+	if (!s || !f)
+		return (NULL);
+	if (!(newstr = malloc(ft_strlen(s) + 1)))
+		return (NULL);
+	index = 0;
+	while (*s)
+	{
+		newstr[index] = f(index, *s++);
+		index++;
+	}
+	newstr[index] = '\0';
+	return (newstr);
 }
