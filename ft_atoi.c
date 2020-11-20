@@ -6,7 +6,7 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 16:29:16 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/09 18:03:32 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/20 13:19:24 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ int	ft_atoi(const char *str)
 	char	sign;
 
 	num = 0;
-	while ((8 < *str && *str < 14) || *str == ' ')
+	while (('\t' <= *str && *str <= '\r') || *str == ' ')
 		str++;
-	sign = 1;
-	if (*str == '-' || *str == '+')
-		sign = 44 - *str++;
-	while (47 < *str && *str < 58)
-		num = num * 10 + (*str++ - '0') * sign;
+	sign = (*str == '-' || *str == '+') ? 44 - *str++ : 1;
+	while ('0' <= *str && *str <= '9')
+		num = num * 10 + sign * (*str++ - '0');
 	return (num);
 }

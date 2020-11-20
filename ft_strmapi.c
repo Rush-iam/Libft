@@ -6,11 +6,10 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 19:53:14 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/18 21:03:58 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/18 23:04:33 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))

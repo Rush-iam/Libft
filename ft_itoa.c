@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 /*
@@ -29,7 +28,7 @@ char	*ft_itoa(int n)
 	digits[0] = '0';
 	while (n)
 	{
-		digits[i++] = '0' + n % 10 * ((n > 0) - (n < 0));
+		digits[i++] = '0' + n % 10 * ((n > 0) - digits[10]);
 		n /= 10;
 	}
 	if (!(str = malloc(digits[10] + i + 1)))

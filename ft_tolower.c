@@ -14,5 +14,5 @@
 
 int	ft_tolower(int c)
 {
-	return (64 < c && c < 91 ? c + 32 : c);
+	return ('A' <= c && c <= 'Z' ? c + 32 : c);
 }
