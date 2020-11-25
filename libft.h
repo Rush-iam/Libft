@@ -6,15 +6,14 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/04 21:24:33 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/20 21:09:29 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/25 11:58:25 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stddef.h>
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct		s_list
 {

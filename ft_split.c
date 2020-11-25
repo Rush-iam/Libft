@@ -6,7 +6,7 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/11 18:16:02 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/12 21:36:28 by ngragas          ###   ########.fr       */
+/*   Updated: 2020/11/25 12:28:45 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ char		**ft_split(char const *s, char c)
 	unsigned	count;
 	char		**split;
 
-	if (!s)
-		return (NULL);
 	count = 0;
 	while (*s)
 		if (*s++ != c && ++count)
