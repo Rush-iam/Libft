@@ -6,7 +6,7 @@
 #    By: ngragas <ngragas@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/04 20:29:14 by ngragas           #+#    #+#              #
-#    Updated: 2020/11/25 12:01:14 by ngragas          ###   ########.fr        #
+#    Updated: 2020/11/25 13:49:49 by ngragas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,6 @@ re: fclean all
 norm:
 	@norminette $(SRCS) $(HEADER)
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $<
 	$(AR) rcs $(NAME) $@
 $(NAME): $(OBJS)
