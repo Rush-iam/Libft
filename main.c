@@ -10,8 +10,8 @@ void listdel(void *s); void listiter(void *s); void *listmapper(void *s);
 #include <time.h>
 int	main(void)
 {
-	char mem4[] = "12345678901234567890";
-	printf("\n%s\n", ft_memset(mem4, 'Z', 18));
+	char mem4[] = "123456789012345678901234567890";
+	printf("\n%s\n", ft_memset(mem4, 'Z' + 256, 28));
 /*	clock_t start, end;
 	start = clock();
 	char src[] = "Hello World!!!!!!", *dst;
@@ -20,11 +20,11 @@ int	main(void)
 	printf("\n%lu", end - start);
 */
 	//while (1){
-		check_1();
-		check_2();
+	//	check_1();
+	//	check_2();
 		check_3();
-		check_4();
-		check_5();
+	//	check_4();
+	//	check_5();
 	//	sleep(1);
 	//}
 }
@@ -210,6 +210,7 @@ void check_3()
 		   memchr("a", 'a', 1), ft_memchr("a", 'a', 1),
 		   memchr("a", 'b', 1), ft_memchr("a", 'b', 1),
 		   memchr("z", 'z' + 256, 1), ft_memchr("z", 'z' + 256, 1));
+	printf("%s=%s\n", memchr("abracadabra!!", '!', 13), ft_memchr("abracadabra!!", '!', 13));
 	for (int i = 0; i < 4; ++i){
 		printf("%d) %s=%s; ", i, memchr("Cek", 'e', i), ft_memchr("Cek", 'e', i));}
 

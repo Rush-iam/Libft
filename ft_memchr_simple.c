@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr_simple.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/10 20:54:11 by ngragas           #+#    #+#             */
-/*   Updated: 2020/12/02 14:16:11 by ngragas          ###   ########.fr       */
+/*   Created: 2020/12/02 14:51:11 by ngragas           #+#    #+#             */
+/*   Updated: 2020/12/02 14:51:11 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*substr;
-	char	*cur;
-
-	if (!(substr = malloc(++len)))
-		return (NULL);
-	cur = substr;
-	s += start;
-	while (--len)
-		*cur++ = *s++;
-	*cur = '\0';
-	return (substr);
+	while (n && *(char *)s != (char)c)
+	{
+		s++;
+		n--;
+	}
+	return (n ? (void *)s : NULL);
 }

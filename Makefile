@@ -6,12 +6,12 @@
 #    By: ngragas <ngragas@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/04 20:29:14 by ngragas           #+#    #+#              #
-#    Updated: 2020/11/25 13:49:49 by ngragas          ###   ########.fr        #
+#    Updated: 2020/12/02 15:01:41 by ngragas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-CFLAGS = -Wall -Wextra -Werror# -O3
+CFLAGS = -Wall -Wextra -Werror -O3
 HEADER = libft.h
 SRCS =		ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isprint.c	\
 			ft_isascii.c	ft_toupper.c	ft_tolower.c	ft_strmapi.c	\
@@ -30,13 +30,12 @@ OBJS = $(SRCS:.c=.o)
 .PHONY: all clean fclean re norm
 all: $(NAME)
 clean:
-	$(RM) $(OBJS)
+	@$(RM) $(OBJS)
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 re: fclean all
 norm:
 	@norminette $(SRCS) $(HEADER)
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $<
-	$(AR) rcs $(NAME) $@
+$(OBJS): $(HEADER)
 $(NAME): $(OBJS)
+	$(AR) rcs $(NAME) $?
