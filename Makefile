@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = libft.a
-CFLAGS = -Wall -Wextra -Werror -O3
+CFLAGS = -Wall -Wextra -Werror -O2
 HEADER = libft.h
 SRCS =		ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isprint.c	\
 			ft_isascii.c	ft_toupper.c	ft_tolower.c	ft_strmapi.c	\
@@ -27,7 +27,6 @@ SRCS =		ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isprint.c	\
 		ft_lstclear.c		ft_lstiter.c			ft_lstmap.c
 OBJS = $(SRCS:.c=.o)
 
-.PHONY: all clean fclean re norm
 all: $(NAME)
 clean:
 	@$(RM) $(OBJS)
@@ -39,3 +38,4 @@ norm:
 $(OBJS): $(HEADER)
 $(NAME): $(OBJS)
 	$(AR) rcs $(NAME) $?
+.PHONY: all clean fclean re norm

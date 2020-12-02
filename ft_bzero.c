@@ -14,24 +14,6 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*str;
-	char	step1;
-
-	str = s;
-	step1 = n % 8;
-	n /= 8;
-	if (n % 2)
-	{
-		*(ssize_t *)str = 0;
-		str += 8;
-		--n;
-	}
-	while (n)
-	{
-		*(__int128 *)str = 0;
-		str += 16;
-		n -= 2;
-	}
-	while (step1--)
-		*str++ = 0;
+	while (n--)
+		*(char *)s++ = 0;
 }
