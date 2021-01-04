@@ -22,9 +22,9 @@ int	main(void)
 	//while (1){
 	//	check_1();
 	//	check_2();
-		check_3();
+//		check_3();
 	//	check_4();
-	//	check_5();
+		check_5();
 	//	sleep(1);
 	//}
 }
