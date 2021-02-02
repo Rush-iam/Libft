@@ -6,7 +6,7 @@
 /*   By: ngragas <ngragas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 18:17:16 by ngragas           #+#    #+#             */
-/*   Updated: 2020/11/25 18:31:31 by ngragas          ###   ########.fr       */
+/*   Updated: 2021/02/02 14:25:29 by ngragas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,27 @@
 void	*ft_memset(void *b, int c, size_t len)
 {
 	char			*cur;
-	const unsigned	i = (unsigned char)c | (unsigned char)c << 8;
-	__int128		int128;
-	char			chars;
+	const size_t	int64 = 0x0101010101010101 * (unsigned char)c;
+	__uint128_t		int128;
 
-	int128 = (unsigned short)i | i << 16 | (size_t)i << 32 | (size_t)i << 48;
-	int128 |= int128 << 64;
 	cur = b;
-	chars = len % 8;
-	len /= 8;
-	if (len % 2)
+	if (len >= 16)
 	{
-		*(ssize_t *)cur = (ssize_t)int128;
+		int128 = int64 | ((__uint128_t)int64 << 64);
+		while (len >= 16)
+		{
+			*(__uint128_t *)cur = int128;
+			cur += 16;
+			len -= 16;
+		}
+	}
+	if (len >= 8)
+	{
+		*(size_t *)cur = int64;
 		cur += 8;
-		--len;
+		len -= 8;
 	}
-	while (len)
-	{
-		*(__int128_t *)cur = int128;
-		cur += 16;
-		len -= 2;
-	}
-	while (chars--)
-		*cur++ = (unsigned char)c;
+	while (len--)
+		*cur++ = (char)c;
 	return (b);
 }
