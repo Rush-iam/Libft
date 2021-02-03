@@ -12,21 +12,21 @@ int	main(void)
 {
 //	char mem4[] = "123456789012345678901234567890";
 //	printf("\n%s\n", ft_memset(mem4, 'Z' + 256, 28));
-	clock_t start, end;
-	char src[] = "435184518rfn hjrbfl isuh rhhksbrkfhbskhdrb fsb r342z23424233212!234";
-	char src2[] = " 435184518rfn hjrbfl isuh rhhksbrkfhbskhdrb fsb r342z23424233212?234";
-	#define CHECK src, src2+1, 68
-	start = clock();
-	for (int i = 0; i < 60000000; ++i){ft_memcmp(CHECK);}
-	end = clock();
-	printf("\n%.3f, %d = %d", (double)(end - start) / CLOCKS_PER_SEC,
-		   ft_memcmp(CHECK), memcmp(CHECK));
+//	clock_t start, end;
+//	char *src = "435184518rfn hjrbfl isuh rhhksbrkfhbskhdrb fsb r342z23424233212!234";
+//	char *src2 = " 435184518rfn hjrbfl isuh rhhksbrkfhbskhdrb fsb r342z23424233212?234";
+//	#define CHECK src, src2+1, 68
+//	start = clock();
+//	for (int i = 0; i < 60000000; ++i){ft_memcmp(CHECK);}
+//	end = clock();
+//	printf("\n%.3f, %d = %d", (double)(end - start) / CLOCKS_PER_SEC,
+//		   ft_memcmp(CHECK), memcmp(CHECK));
 
 	//while (1){
 //		check_1();
 //		check_2();
-//		check_3();
-	//	check_4();
+		check_3();
+//		check_4();
 	//	check_5();
 	//	sleep(1);
 	//}
